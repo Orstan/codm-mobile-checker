@@ -28,6 +28,17 @@
         </div>
         <div class="row mb-3">
             <div class="col-12">
+                <h3>ผลทดสอบที่ได้จะมี</h3>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-success">ทดสอบแล้วเล่นได้ - ผ่านการทดสอบแล้วว่าเล่นได้</li>
+              <li class="list-group-item list-group-item-info">Spec ผ่านความต้องการขั้นต่ำ - ผ่านความต้องการขั้นต่ำแล้ว แต่ยังไม่ได้รับผลทดสอบ</li>
+              <li class="list-group-item list-group-item-warning">อาจจะเล่นไม่ได้ - ข้อมูลไม่พอแต่อาจจะเล่นได้</li>
+              <li class="list-group-item list-group-item-danger">เล่นไม่ได้ - spec ไม่ผ่านความต้องการขั้นต่ำ</li>
+            </ul>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
                 <div class="text-danger">*ไม่ใช่ระบบของผู้สร้างเกม</div>
                 <div class="text-danger">*ข้อมูลได้จากการรวบรวมผลทดสอบ อาจมีผิดพลาดได้</div>
                 <div class="text-danger">*ผลทดสอบอาจมีผิดพลาด รุ่นไหน ขึ้นเล่นได้แต่เล่นไม่ได้ หรือ ขึ้นเล่นไม่ได้แต่เล่นได้ โปรดแจ้งมาทางเพจ</div>
@@ -437,7 +448,7 @@
                                 content += "<td><b>ทดสอบแล้วเล่นได้</b></td>"
                                 break;
                             case 2:
-                                content += "<td><b>Spec ผ่านขั้นต่ำ</b></td>"
+                                content += "<td><b>Spec ผ่านความต้องการขั้นต่ำ</b></td>"
                                 break;
                             case 0:
                                 content += "<td><b>เล่นไม่ได้</b></td>"
