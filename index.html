@@ -17,7 +17,12 @@
             <h2>ตรวจสอบรุ่นที่เล่น Call of Duty Mobile ได้</h2>
         </div>
         <div class="row mb-3">
-            <p>สร้างโดย keRLos กดติดตามได้ที่ เพจ <a href="https://www.facebook.com/kerlosth/" target="_blank">keRLos https://www.facebook.com/kerlosth</a></p>
+            <div class="col-12">
+                <div class="text-danger">*ไม่ใช่ระบบของผู้สร้างเกม</div>
+                <div class="text-danger">*ข้อมูลได้จากการรวบรวมผลทดสอบ อาจมีผิดพลาดได้</div>
+                <div class="text-danger">*ผลทดสอบอาจมีผิดพลาด รุ่นไหน ขึ้นเล่นได้แต่เล่นไม่ได้ หรือ ขึ้นเล่นไม่ได้แต่เล่นได้ โปรดแจ้งมาทางเพจ</div>
+                <p>สร้างโดย keRLos กดติดตามได้ที่ เพจ <a href="https://www.facebook.com/kerlosth/" target="_blank">keRLos https://www.facebook.com/kerlosth</a></p>
+            </div>
         </div>
         <div class="row">
             <form class="form-inline mb-3">
@@ -53,8 +58,6 @@
     var ramRegex = /([0-9.]+)\sGB\sRAM/g
     var cpuRegex = /(([0-9])x)?([0-9.]+)\sghz/g
     var supportedDevices = [
-        "sony xperia xz premium",
-
         //xiaomi
         "xiaomi mi 3",
         "xiaomi mi 4c",
@@ -128,6 +131,187 @@
         "huawei honor 10",
 
         //apple
+        "apple iphone xs",
+        "apple iphone x",
+        "apple iphone xr",
+        "apple iphone xs max",
+        "apple iphone 8",
+        "apple iphone 8 plus",
+        "apple iphone 7",
+        "apple iphone 7 plus",
+        "apple iphone 6s",
+        "apple iphone 6s plus",
+        "apple iphone se",
+        "apple ipad pro 11",
+        "apple ipad pro",
+        "apple ipad pro 9.7",
+        "apple ipad pro 10.5 (2017)",
+        "apple ipad pro 12.9 (2017)",
+        "apple ipad 9.7 (2017)",
+        "apple ipad 10.5 (2017)",
+        "apple ipad 12.9 (2017)",
+        "apple ipad mini (2019)",
+        "apple ipad air (2019)",
+        "apple ipad se",
+        "apple ipad se",
+        "apple ipad se",
+        "apple ipad se",
+        "apple ipad se",
+        "apple ipad se",
+        "apple ipad se",
+        "apple ipad se",
+        "apple ipad se",
+
+        //oppo
+        "oppo a9",
+        "oppo k3",
+        "oppo a9x",
+        "oppo reno",
+        "oppo reno z",
+        "oppo r17",
+        "oppo reno 10",
+        "oppo find x",
+        "oppo a7x",
+        "oppo a3",
+        "oppo r15",
+        "oppo r15 pro",
+        "oppo r9",
+        "oppo r9s",
+        "oppo r9 plus",
+        "oppo r9s plus",
+        "oppo r11",
+        "oppo a83",
+        "oppo r17",
+        "oppo r17 pro",
+        "oppo r15",
+        "oppo r15x",
+        "oppo r15 pro",
+        "oppo r21",
+        "oppo r19",
+        "oppo a79",
+        "oppo r11",
+        "oppo r11 plus",
+        "oppo a73",
+        "oppo find x 2",
+        "oppo r11s",
+        "oppo r20",
+
+        //vivo
+        "vivo y7s",
+        "vivo y3",
+        "vivo x27",
+        "vivo z5",
+        "vivo z5x",
+        "vivo iqoo",
+        "vivo s1",
+        "vivo x23",
+        "vivo z3",
+        "vivo s1",
+        "vivo s1 pro",
+        "vivo y93s",
+        "vivo x27 pro",
+        "vivo x21",
+        "vivo y97",
+        "vivo z3i",
+        "vivo z1",
+        "vivo x20",
+        "vivo x9",
+        "vivo z3x",
+        "vivo y83",
+        "vivo y91",
+        "vivo nex dual display",
+        "vivo x30",
+        "vivo x9i",
+        "vivo x9 plus",
+        "vivo x9s",
+        "vivo x9",
+        "vivo x9s plus",
+        "vivo x7",
+        "vivo x25",
+        "vivo x23",
+        "vivo y89",
+        "vivo y81s",
+        "vivo next",
+        "vivo z1i",
+        "vivo x7 plus",
+        "vivo x20 plus",
+        "vivo y75",
+        "vivo x21i",
+        "vivo x9s",
+        "vivo x21",
+        "vivo x21s",
+        "vivo xplay5",
+        "vivo xplay6",
+        "vivo xplay7",
+        "vivo x9",
+        "vivo x9 plus",
+        "vivo x9s",
+        "vivo x9s plus",
+        "vivo z1",
+        "vivo y97",
+        "vivo y91c",
+        "vivo x21",
+        "vivo v15",
+        "vivo x6s",
+        "vivo x30",
+        "vivo x30 plus",
+        "vivo x6s plus",
+        "vivo apex",
+        "vivo v5",
+        "vivo v5 plus",
+        "vivo v5s",
+        "vivo v5 lite",
+        "vivo xplay3s",
+        "vivo xplay5 elite",
+        "vivo xshot",
+
+        //oneplus
+        "oneplus 3",
+        "oneplus 3t",
+        "oneplus 5",
+        "oneplus 5t",
+        "oneplus 6",
+        "oneplus 6t",
+        "oneplus 7",
+        "oneplus 7 pro",
+
+        //nubia
+        "zte nubia x",
+        "zte nubia z17",
+        "zte nubia z17s",
+        "zte nubia z11",
+        "zte nubia z17 mini",
+        "zte nubia z11 mini",
+        "zte nubia z11 mini s",
+        "zte nubia z9 mini",
+        "zte nubia z9 max",
+        "zte nubia my plague",
+        "zte nubia z9",
+
+        //meizu
+        "meizu 16s",
+        "meizu pro 7 plus",
+        "meizu pro 7",
+        "meizu pro 5",
+        "meizu pro 5 mini",
+        "meizu pro 6",
+        "meizu pro 6s",
+        "meizu pro 6 plus",
+        "meizu mx6",
+        "meizu mx5",
+        "meizu mx4",
+        "meizu mx4 pro",
+        "meizu mx5e",
+        "meizu note 9",
+
+        //others
+        "google pixel 2",
+        "google pixel 2 xl",
+        "google pixel 3",
+        "google pixel 3 xl",
+        "google pixel 3 lite",
+        "razer phone",
+        "sony xperia xz premium",
     ]
 
     var unsupportedDevices = [
@@ -171,9 +355,6 @@
         }
 
         cpu = cpu.toLowerCase()
-        if(cpu.includes("dual-core")) {
-            return 0
-        }
         if(cpu.includes("octa-core") || cpu.includes("hexa-core")) {
             return 2
         }
