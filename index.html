@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Prompt&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="row">
+            <h2>ตรวจสอบรุ่นที่เล่น Call of Duty Mobile ได้</h2>
+        </div>
+        <div class="row mb-3">
+            <p>สร้างโดย keRLos กดติดตามได้ที่ เพจ <a href="https://www.facebook.com/kerlosth/" target="_blank">keRLos https://www.facebook.com/kerlosth</a></p>
+        </div>
+        <div class="row">
+            <form class="form-inline mb-3">
+                <h3>พิมพ์ชื่อรุ่น</h3>
+                <div class="form-group ml-4">
+                    <input class="devname form-control" type="text"></input> 
+                </div>
+                <div class="form-group ml-2">
+                    <button class="form-control btn btn-primary submit">ค้นหา</button>
+                </div>
+            </form>
+        </div>
+        <div class="row api table-responsive table-hover">
+            <table class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="width:35%">รุ่น</th>
+                        <th style="width:25%">CPU</th>
+                        <th style="width:20%">RAM</th>
+                        <th style="width:20%">เล่นได้มั้ย</th></tr>
+                </thead>
+                <tbody>
+
+                </tobdy>
+            </table>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://fonoapi.freshpixl.com/assets/js/fonoapi.jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-loading-overlay/2.1.6/loadingoverlay.min.js"></script>
+<script>
+    var ramRegex = /([0-9.]+)\sGB\sRAM/g
+    var cpuRegex = /(([0-9])x)?([0-9.]+)\sghz/g
+    var supportedDevices = [
+        "sony xperia xz premium",
+
+        //xiaomi
+        "xiaomi mi 3",
+        "xiaomi mi 4c",
+        "xiaomi mi 4s",
+        "xiaomi mi 5c",
+        "xiaomi mi 5s plus",
+        "xiaomi mi 5s",
+        "xiaomi mi 5x",
+        "xiaomi mi 5",
+        "xiaomi mi 6",
+        "xiaomi mi 6x",
+        "xiaomi mi 8",
+        "xiaomi mi 8 se",
+        "xiaomi mi 9",
+        "xiaomi mi 9 se",
+        "xiaomi mi note",
+        "xiaomi mi note 2",
+        "xiaomi mi note 3",
+        "xiaomi mi max",
+        "xiaomi mi max 2",
+        "xiaomi mi max 3",
+        "xiaomi mi max 4",
+        "xiaomi mi mix",
+        "xiaomi mi mix 2",
+        "xiaomi mi mix 2s",
+        "xiaomi mi mix 3",
+        "xiaomi redmi 6 pro",
+        "xiaomi redmi 7",
+        "xiaomi redmi note 3",
+        "xiaomi redmi note 4x",
+        "xiaomi redmi note 5",
+        "xiaomi redmi note 7",
+        "xiaomi redmi note 7 pro",
+
+        //huawei
+        "huawei mate rs porsche design",
+        "huawei mate 10 porsche design",
+        "huawei mate 10",
+        "huawei mate 10 pro",
+        "huawei mate 10 lite",
+        "huawei mate 9",
+        "huawei mate 9 pro",
+        "huawei mate 9 porsche design",
+        "huawei nova 2",
+        "huawei nova 4",
+        "huawei nova 4e",
+        "huawei nova 5",
+        "huawei nova 3i",
+        "huawei nova 2 plus",
+        "huawei nova 5i",
+        "huawei nova 5i pro",
+        "huawei note 8",
+        "huawei note 10",
+        "huawei note 20",
+        "huawei p20 pro",
+        "huawei p20 lite",
+        "huawei p20",
+        "huawei p30",
+        "huawei p30 pro",
+        "huawei p30 lite",
+        "huawei honor 8",
+        "huawei honor 8 pro",
+        "huawei honor note 8",
+        "huawei honor note 9",
+        "huawei honor note 10",
+        "huawei honor 9",
+        "huawei honor 9 lite",
+        "huawei honor v8",
+        "huawei honor v9",
+        "huawei honor v20",
+        "huawei honor 10",
+
+        //apple
+    ]
+
+    var unsupportedDevices = [
+
+    ]
+
+    function checkCompatible(deviceName, ram, cpu) {
+        deviceName = deviceName.toLowerCase()
+        if(supportedDevices.includes(deviceName)) {
+            return 1
+        }
+
+        if(unsupportedDevices.includes(deviceName)) {
+            return 0
+        }
+        if(ram == "" || cpu == "") {
+            return -2
+        }
+
+        ramOk = false
+        if (ram != "") {
+            matches = ram.matchAll(ramRegex)
+            //console.log(matches)
+            i = matches.next()
+            
+            while(!i.done) {
+                m = i.value
+                ram = parseFloat(m[1])
+                if(ram >=2) {
+                    ramOk = true
+                    break
+                }
+                i = matches.next()
+            }
+        } else {
+            ram = 0
+        }
+
+        if(ram < 2 || !ramOk) {
+            return 0
+        }
+
+        cpu = cpu.toLowerCase()
+        if(cpu.includes("dual-core")) {
+            return 0
+        }
+        if(cpu.includes("octa-core") || cpu.includes("hexa-core")) {
+            return 2
+        }
+
+        if(cpu.includes("quad-core")) {
+            matches = cpu.matchAll(cpuRegex)
+
+            i = matches.next()
+            while(!i.done) {
+                m = i.value
+                if(m[1] == undefined) { // real quad core
+                    cpu = parseFloat(m[3])
+                    if(cpu >= 1.2) {
+                        return 2
+                    }
+                } else {
+                    cpuCount = parseInt(m[2])
+                    if(cpuCount < 4) {
+                        return -1
+                    }
+                }
+                i = matches.next()
+            }
+        }
+        return -1
+    }
+
+    $(function(){
+        $('.submit').on('click', function(e) {
+            e.preventDefault();
+            $.LoadingOverlay("show");
+            $('.api table tbody').fonoApi({
+                token : "3b912b899bdd527c21d3129b4749613c8c7ed67498f08b7e",
+                device : $('.devname').val(),
+                limit : 50,
+                onComplete: function() {
+                    $.LoadingOverlay("hide", true);
+                },
+                template : function() {
+                    return $.map(arguments, function(obj, i) {
+                        var deviceName = obj['DeviceName'] != undefined ? obj['DeviceName'] : "";
+                        var cpu = obj['cpu'] != undefined ? obj['cpu'] : "";
+                        var ram = obj['internal'] != undefined ? obj['internal'] : "";
+                        var supported = checkCompatible(deviceName, ram, cpu)
+                        content = "<tr"
+                        switch (supported){
+                            case 1:
+                                content += ' class="table-success">'
+                                break;
+                            case 2:
+                                content += ' class="table-info">'
+                                break;
+                            case 0:
+                                content += ' class="table-danger">'
+                                break;
+                            default:
+                                content += ' class="table-warning">'
+                                break;
+                        }
+                        content += "<td>" + deviceName + "</td><td>" + cpu + "</td><td>" + ram + "</td>"
+                        switch (supported) {
+                            case 1:
+                                content += "<td><b>เล่นได้</b></td>"
+                                break;
+                            case 2:
+                                content += "<td><b>น่าจะเล่นได้</b></td>"
+                                break;
+                            case 0:
+                                content += "<td><b>เล่นไม่ได้</b></td>"
+                                break;
+                            default:
+                                content += "<td><b>อาจจะเล่นไม่ได้</b></td>"
+                                break;
+                        }
+                        content += "</tr>"
+                        return content
+                    });
+
+                }
+            });
+
+        });
+    })
+</script>
+</body>
+</html>
