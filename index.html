@@ -31,6 +31,8 @@
                 <div class="text-danger">*ไม่ใช่ระบบของผู้สร้างเกม</div>
                 <div class="text-danger">*ข้อมูลได้จากการรวบรวมผลทดสอบ อาจมีผิดพลาดได้</div>
                 <div class="text-danger">*ผลทดสอบอาจมีผิดพลาด รุ่นไหน ขึ้นเล่นได้แต่เล่นไม่ได้ หรือ ขึ้นเล่นไม่ได้แต่เล่นได้ โปรดแจ้งมาทางเพจ</div>
+                <div class="text-danger">*ถ้าไม่พบรุ่นของมือถือให้ทำการลบชื่อย่อยของรุ่นออก แล้วลองค้นหา เช่น Redmi Note 5 ให้เหลือแค่ Redmi</div>
+                <div class="text-danger">*ถ้ายังคงไม่พบรุ่นอีกให้หา spec ของรุ่นเอง แล้วเช็คว่า cpu ขั้นต่ำเป็น Quad-Core 1.2 Ghz และ Ram 2 GB</div>
                 <p>สร้างโดย keRLos กดติดตามได้ที่ เพจ <a href="https://www.facebook.com/kerlosth/" target="_blank">keRLos https://www.facebook.com/kerlosth</a></p>
             </div>
         </div>
@@ -427,10 +429,10 @@
                         content += "<td>" + deviceName + "</td><td>" + cpu + "</td><td>" + ram + "</td>"
                         switch (supported) {
                             case 1:
-                                content += "<td><b>เล่นได้</b></td>"
+                                content += "<td><b>ทดสอบแล้วเล่นได้</b></td>"
                                 break;
                             case 2:
-                                content += "<td><b>น่าจะเล่นได้</b></td>"
+                                content += "<td><b>Spec ผ่านขั้นต่ำ</b></td>"
                                 break;
                             case 0:
                                 content += "<td><b>เล่นไม่ได้</b></td>"
