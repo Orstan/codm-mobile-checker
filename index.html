@@ -24,53 +24,62 @@
 <body>
     <div class="container mt-3">
         <div class="row">
-            <h2>ตรวจสอบรุ่นที่เล่น Call of Duty Mobile ได้</h2>
-        </div>
-        <div class="row mb-3">
             <div class="col-12">
-                <h3>ผลทดสอบที่ได้จะมี</h3>
+                <h2>ตรวจสอบรุ่นที่เล่น Call of Duty Mobile ได้</h2>
             </div>
-            <ul class="list-group">
-              <li class="list-group-item list-group-item-success">ทดสอบแล้วเล่นได้ - ผ่านการทดสอบแล้วว่าเล่นได้</li>
-              <li class="list-group-item list-group-item-info">Spec ผ่านความต้องการขั้นต่ำ - ผ่านความต้องการขั้นต่ำแล้ว แต่ยังไม่ได้รับผลทดสอบ</li>
-              <li class="list-group-item list-group-item-warning">อาจจะเล่นไม่ได้ - ข้อมูลไม่พอแต่อาจจะเล่นได้</li>
-              <li class="list-group-item list-group-item-danger">เล่นไม่ได้ - spec ไม่ผ่านความต้องการขั้นต่ำ</li>
-            </ul>
         </div>
-        <div class="row mb-3">
-            <div class="col-12">
+        <hr>
+        <div class="row">
+            <div class="col-4">
+                <h3>ผลทดสอบที่ได้จะมี</h3>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-success py-2">ทดสอบแล้วเล่นได้ - ผ่านการทดสอบแล้วว่าเล่นได้</li>
+                    <li class="list-group-item list-group-item-info py-2">Spec ผ่านความต้องการขั้นต่ำ - ผ่านความต้องการขั้นต่ำแล้ว แต่ยังไม่ได้รับผลทดสอบ</li>
+                    <li class="list-group-item list-group-item-warning py-2">อาจจะเล่นไม่ได้ - ข้อมูลไม่พอแต่อาจจะเล่นได้</li>
+                    <li class="list-group-item list-group-item-danger py-2">เล่นไม่ได้ - spec ไม่ผ่านความต้องการขั้นต่ำ</li>
+                </ul>
+            </div>
+            <div class="col-8">
+                <h3>หมายเหตุ</h3>
                 <div class="text-danger">*ไม่ใช่ระบบของผู้สร้างเกม</div>
                 <div class="text-danger">*ข้อมูลได้จากการรวบรวมผลทดสอบ อาจมีผิดพลาดได้</div>
                 <div class="text-danger">*ผลทดสอบอาจมีผิดพลาด รุ่นไหน ขึ้นเล่นได้แต่เล่นไม่ได้ หรือ ขึ้นเล่นไม่ได้แต่เล่นได้ โปรดแจ้งมาทางเพจ</div>
                 <div class="text-danger">*ถ้าไม่พบรุ่นของมือถือให้ทำการลบชื่อย่อยของรุ่นออก แล้วลองค้นหา เช่น Redmi Note 5 ให้เหลือแค่ Redmi</div>
                 <div class="text-danger">*ถ้ายังคงไม่พบรุ่นอีกให้หา spec ของรุ่นเอง แล้วเช็คว่า cpu ขั้นต่ำเป็น Quad-Core 1.2 Ghz และ Ram 2 GB</div>
                 <p>สร้างโดย keRLos กดติดตามได้ที่ เพจ <a href="https://www.facebook.com/kerlosth/" target="_blank">keRLos https://www.facebook.com/kerlosth</a></p>
+                <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fkerlosth&width=450&layout=standard&action=like&size=small&show_faces=true&share=false&height=80" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12">
+                <form class="form-inline mb-3">
+                    <h3>พิมพ์ชื่อรุ่น</h3>
+                    <div class="form-group ml-4">
+                        <input class="devname form-control" type="text"></input> 
+                    </div>
+                    <div class="form-group ml-2">
+                        <button class="form-control btn btn-primary submit">ค้นหา</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="row">
-            <form class="form-inline mb-3">
-                <h3>พิมพ์ชื่อรุ่น</h3>
-                <div class="form-group ml-4">
-                    <input class="devname form-control" type="text"></input> 
-                </div>
-                <div class="form-group ml-2">
-                    <button class="form-control btn btn-primary submit">ค้นหา</button>
-                </div>
-            </form>
-        </div>
-        <div class="row api table-responsive table-hover">
-            <table class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th style="width:30%">รุ่น</th>
-                        <th style="width:25%">CPU</th>
-                        <th style="width:20%">RAM</th>
-                        <th style="width:25%">เล่นได้มั้ย</th></tr>
-                </thead>
-                <tbody>
+            <div class="col-12 api table-responsive table-hover">
+                
+                <table class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th style="width:30%">รุ่น</th>
+                            <th style="width:25%">CPU</th>
+                            <th style="width:20%">RAM</th>
+                            <th style="width:25%">เล่นได้มั้ย</th></tr>
+                    </thead>
+                    <tbody>
 
-                </tobdy>
-            </table>
+                    </tobdy>
+                </table>
+            </div>
         </div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
